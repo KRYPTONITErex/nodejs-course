@@ -8,12 +8,9 @@
 
 
 <body>
-    <nav>
-        <a href="/">HOME</a>
-        <a href="/about">ABOUT</a>
-        <a href="/contact">CONTACT</a>
-    </nav>
+    <%- include('./components/navbar.ejs') %>
 
+    <%- "<h1>HOME HELLO WORLD</h1>" %>
     <% if(blogs.length) { %>
         <% blogs.forEach(blog => {  %>
             <h2 ><%= blog.title %></h2>
