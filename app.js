@@ -16,7 +16,16 @@ app.get('/', (req, res) => {
     // res.end();
     // res.send('<h1>HOME PAGE hello world</h1>');
     // res.sendFile('./views/index.html', {root: __dirname});
-    res.render('index');
+
+    let blogs = [
+        {title: 'blog 1', snippet: 'blog 1 snippet updated'},
+        {title: 'blog 2', snippet: 'blog 2 snippet'},
+        {title: 'blog 3', snippet: 'blog 3 snippet'}
+    ]
+
+    res.render('index',{
+        blogs : blogs
+    });
 })
 
 app.get('/about', (req, res) => {
