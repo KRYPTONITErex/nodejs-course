@@ -1,6 +1,7 @@
 // console.log('app is start running')
 
 const express = require('express');
+const { title } = require('process');
 const app = express();
 
 app.set('views', './views');
@@ -24,13 +25,16 @@ app.get('/', (req, res) => {
     ]
 
     res.render('index',{
-        blogs : blogs
+        blogs : blogs,
+        title : 'Home'
     });
 })
 
 app.get('/about', (req, res) => {
     // res.sendFile('./views/about.html', {root: __dirname});
-    res.render('about');
+    res.render('about',{
+        title : 'About'
+    });
 })
 // app.get('/about-us', (req, res) => {
 //     res.redirect('/about');
@@ -38,10 +42,14 @@ app.get('/about', (req, res) => {
 
 app.get('/contact', (req, res) => {
     // res.sendFile('./views/contact.html', {root: __dirname});
-    res.render('contact');
+    res.render('contact',{
+        title : 'Contact'
+    });
 })
 
 app.use((req, res) => {
-    res.status(404).render('404');
+    res.status(404).render('404',{
+        title : '404 NOT FOU'
+    });
     // res.sendFile('./views/404.html', {root: __dirname});
 })
