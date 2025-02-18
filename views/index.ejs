@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include('./components/head.ejs') %>
 
-<%- include('./components/head.ejs') %>
+  <body>
 
-<body>
-    <%- include('./components/navbar.ejs') %>
+    <%- include('./components/navbar.ejs') %> 
 
-    <%- "<h1>HOME HELLO WORLD</h1>" %>
-    <% if(blogs.length) { %>
-        <% blogs.forEach(blog => {  %>
-            <h2 ><%= blog.title %></h2>
-            <h3><%= blog.snippet %> ... </h3>
-            <br><hr>
-        <% }) %>
-    <% } else { %>
-        <h2>no blog found</h2>
-    <% } %>
+    <div class="container">
 
-    <p>this is html file</p>
+      <% if(blogs.length) { %> <% blogs.forEach(blog => { %>
+      <h2><%= blog.title %></h2>
+      <h3><%= blog.snippet %> ...</h3>
+      <br />
+      <% }) %> <% } else { %>
+      <h2>no blog found</h2>
+      <% } %>
 
+    </div>
 
-    
-</body>
+  </body>
 </html>
