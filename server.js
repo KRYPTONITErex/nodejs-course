@@ -12,10 +12,20 @@ const server = http.createServer((req, res) => {
             filename = 'index.html';
             res.statusCode = 200;
         break;
+        case '/home':
+            filename = 'index.html';
+            res.statusCode = 301;
+            res.setHeader('Location','/');
+        break;
 
         case '/contact':
             filename = 'contact.html';
             res.statusCode = 200;
+        break;
+        case '/contact-us':
+            filename = 'contact.html';
+            res.statusCode = 301;
+            res.setHeader('Location','/contact');
         break;
 
         case '/about':
