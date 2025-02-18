@@ -11,6 +11,11 @@ app.listen(3000, () => {
     console.log('server is running on port 3000');
 });
 
+app.use((req,res,next)=>{
+    console.log('1st middleware is running');
+    next();
+})
+
 
 app.get('/', (req, res) => {
     // res.write('<h1>HOME PAGE</h1>');
@@ -39,6 +44,11 @@ app.get('/about', (req, res) => {
 // app.get('/about-us', (req, res) => {
 //     res.redirect('/about');
 // })
+
+app.use((req,res,next)=>{
+    console.log('2nd middleware is running');
+    next();
+})
 
 app.get('/contact', (req, res) => {
     // res.sendFile('./views/contact.html', {root: __dirname});
