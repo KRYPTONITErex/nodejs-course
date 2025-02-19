@@ -1,4 +1,5 @@
 // console.log('app is start running')
+let morgan = require('morgan');
 
 const express = require('express');
 const { title } = require('process');
@@ -11,10 +12,19 @@ app.listen(3000, () => {
     console.log('server is running on port 3000');
 });
 
-app.use((req,res,next)=>{
-    console.log('1st middleware is running');
-    next();
-})
+// let dev = 'dev';
+// let logger = (env)=>{
+//     return (req,res,next)=>{
+//         if(env === 'dev'){
+//         console.log(`${req.method} ${req.originalUrl} --`);
+//     }
+//         next();
+//     }
+// }
+// app.use(logger());
+
+//package name - morgan
+app.use(morgan('dev'));
 
 
 app.get('/', (req, res) => {
@@ -45,10 +55,10 @@ app.get('/about', (req, res) => {
 //     res.redirect('/about');
 // })
 
-app.use((req,res,next)=>{
-    console.log('2nd middleware is running');
-    next();
-})
+// app.use((req,res,next)=>{
+//     console.log('2nd middleware is running');
+//     next();
+// })
 
 app.get('/contact', (req, res) => {
     // res.sendFile('./views/contact.html', {root: __dirname});
